@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk install pip3
-RUN pip3 install psycopg2
+RUN apt-get update && apt-get install -y python3.6 python3-distutils python3-pip python3-apt
+RUN pip install psycopg2-binary
 RUN mkdir app
 COPY replica.py app/replica.py
 
